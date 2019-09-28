@@ -1,1 +1,29 @@
 
+server:
+  port: 8090
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+    enabled-by-default: true
+
+
+
+
+http:
+  agent:
+    root:
+      uri: "http://127.0.0.1"
+
+
+logging:
+  file: log/micrometer.log
+  pattern:
+    console:  "%d %-5level [req=%-36.36X{requestId}, dsn=%-18X{dsn}] [%-10.10thread] %-40.40logger : %msg%n"
+    file:     "%d %-5level [req=%-36.36X{requestId}, dsn=%-18X{dsn}] [%-10.10thread] %-40.40logger : %msg%n"
+  level:
+    ROOT: INFO
+    org.springframework: ERROR
+    org.ming: DEBUG
