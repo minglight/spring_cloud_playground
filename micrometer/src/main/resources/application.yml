@@ -1,5 +1,6 @@
 
 server:
+
   port: 8090
 
 management:
@@ -8,9 +9,6 @@ management:
       exposure:
         include: health,metrics,prometheus
     enabled-by-default: true
-
-
-
 
 http:
   agent:

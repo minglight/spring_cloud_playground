@@ -17,3 +17,8 @@
 3. Create your own thread pool and use it by @Async("{threadPoolName})
 
   > This is more proper way to handle Spring Schedule Task
+  
+## Tips
+
+* @Async can be applied to class level to make all the underlying method becomes async executed
+* If you have a @Bean as ExecutorService, then you must specify the value of @Async.

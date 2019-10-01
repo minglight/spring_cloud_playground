@@ -19,5 +19,9 @@ dependencies {
 
     //micrometer & prometheus
     implementation 'io.micrometer:micrometer-registry-prometheus:1.2.0'
+
+    //aspectJ
+    implementation 'org.aspectj:aspectjrt:1.8.6'
+    implementation 'aspectj:aspectjweaver:1.5.4'
     
 }

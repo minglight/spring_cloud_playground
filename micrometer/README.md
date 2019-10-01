@@ -29,11 +29,11 @@ Custom
 
 ## TODO : 
 
--[ ] Setup Env ( Gradle, application.yml )
--[ ] Impl and check spring default metrics 
--[ ] Impl RestClient to 
-  -[ ] Call the API above
-  -[ ] Read the metrics 
+-[x] Setup Env ( Gradle, application.yml )
+-[x] Impl and check spring default metrics 
+-[x] Impl RestClient to 
+  -[x] Call the API above
+  -[x] Read the metrics 
 -[ ] Impl basic customized metrics
   -[ ] Counter
   -[ ] Gauge
