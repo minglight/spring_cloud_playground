@@ -30,6 +30,17 @@ public class CustomTimedAnnotation {
         }
     }
 
+    @Scheduled(fixedRate = 2000)
+    @Timed(value="custom.annotated.longtask.timer", longTask = true)
+    public void longTaskTimed(){
+        try {
+            Thread.sleep(10000+ new Random().nextInt(60000));
+            logger.info("do long task timer Job");
+        } catch (InterruptedException theE) {
+            theE.printStackTrace();
+        }
+    }
+
 
 
 

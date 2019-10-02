@@ -35,9 +35,9 @@ Custom
   -[x] Call the API above
   -[x] Read the metrics 
 -[ ] Impl basic customized metrics
-  -[ ] Counter
-  -[ ] Gauge
-  -[ ] Timer
-  -[ ] Summary
-  -[ ] Long Task Timer
--[] Impl ThreadPool monitoring
+  -[x] Counter
+  -[x] Gauge
+  -[x] Timer
+  -[x] Summary
+  -[x] Long Task Timer
+-[x] Impl ThreadPool monitoring

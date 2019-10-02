@@ -37,10 +37,11 @@ public class CustomDistribution {
                 .description("a description of what this summary does") // optional
                 .baseUnit("bytes") // optional (1)
                 .tags("region", "test") // optional
-//                .scale(1000) // optional (2)
-                .sla(7000,8000,9000)
-                .publishPercentileHistogram()
-                .maximumExpectedValue((long)10000)
+                .publishPercentiles(0.95) //return the max amount within 95% of the records
+                .scale(1000) // optional (2), final num = given amount x scale
+                .sla(7000,8000,9000) // if using publishPercentileHistogram(), there will be extra buckets with the following threshhold
+                .publishPercentileHistogram() // publish to get histogram
+                .maximumExpectedValue((long)10000) // limit the upper bound of the histogram ( otherwise the buckets will be increased crazy)
                 .register(meterRegistry);
     }
 
