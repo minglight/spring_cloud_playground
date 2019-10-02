@@ -8,7 +8,7 @@
 ## Enable Schedule
 1. Only add @EnableScheduling can make @Scheduled works (ScheduleSingleThreadApplication )
 
-  > @Schedule is single tread for all the jobs if you only set @EnableSchedule   
+  > @Schedule is single thread for all the jobs if you only set @EnableSchedule   
 
 2. Add @EnableAsync and @Async on the schedule method
 

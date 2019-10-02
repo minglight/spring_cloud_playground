@@ -11,8 +11,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-//@Async("agentThreadPool")
-//@Component
+@Async("agentThreadPool")
+@Component
 public class HttpTestAgents {
 
     private static final Logger logger = LoggerFactory.getLogger(HttpTestAgents.class);
@@ -25,10 +25,13 @@ public class HttpTestAgents {
     @Value("${server.port}")
     private Integer serverPort;
 
+    @Value("${server.servlet.context-path}")
+    private String contextPath;
+
     @PostConstruct
     private void init(){
         restTemplate = new RestTemplateBuilder()
-                .rootUri(httpAgentRootUri+":"+serverPort)
+                .rootUri(httpAgentRootUri+":"+serverPort+contextPath)
                  .build();
     }
 

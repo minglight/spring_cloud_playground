@@ -5,10 +5,8 @@ import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -29,6 +27,8 @@ public class HttpClientMetrics {
 
     @Value("${http.agent.root.uri}") String httpAgentRootUri;
     @Value("${server.port}") Integer serverPort;
+    @Value("${server.servlet.context-path}")
+    private String contextPath;
 
     @PostConstruct
     public void init(){
@@ -37,14 +37,16 @@ public class HttpClientMetrics {
     }
 
     public RestTemplate restTemplateFromBuilder(){
+        String rootPath = httpAgentRootUri+":"+serverPort+"/"+contextPath;
         return restTemplateBuilder
-                .rootUri(httpAgentRootUri+":"+serverPort)
+                .rootUri(rootPath)
                 .build();
     }
 
     public RestTemplate restTemplateFromNew(){
+        String rootPath = httpAgentRootUri+":"+serverPort+"/"+contextPath;
         return new RestTemplateBuilder()
-                .rootUri(httpAgentRootUri+":"+serverPort)
+                .rootUri(rootPath)
                 .build();
     }
 
@@ -65,7 +67,7 @@ public class HttpClientMetrics {
      *
      */
     @Scheduled(fixedRate = 1000)
-    public void pingUserByGlobalWithQS(){
+    public void pingUserByGlobalWithQueryString(){
         String value = globalRestTemplate.getForObject("/mvc/user?abc=123", String.class);
         logger.debug("ping /mvc/user, return={}", value);
     }
