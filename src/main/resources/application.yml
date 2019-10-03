@@ -1,14 +1,11 @@
-
 server:
-  port: 8090
-  servlet:
-    context-path: "/micrometer"
+  port: 8085
 
 management:
   endpoints:
     web:
       exposure:
-        include: health,metrics,loggers,prometheus
+        include: health,metrics,loggers
     enabled-by-default: true
 
 http:

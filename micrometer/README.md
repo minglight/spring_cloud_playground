@@ -29,15 +29,15 @@ Custom
 
 ## TODO : 
 
--[x] Setup Env ( Gradle, application.yml )
--[x] Impl and check spring default metrics 
--[x] Impl RestClient to 
-  -[x] Call the API above
-  -[x] Read the metrics 
--[ ] Impl basic customized metrics
-  -[x] Counter
-  -[x] Gauge
-  -[x] Timer
-  -[x] Summary
-  -[x] Long Task Timer
--[x] Impl ThreadPool monitoring
+- [x] Setup Env ( Gradle, application.yml )
+- [x] Impl and check spring default metrics 
+- [x] Impl RestClient to 
+  - [x] Call the API above
+  - [x] Read the metrics 
+- [ ] Impl basic customized metrics
+  - [x] Counter
+  - [x] Gauge
+  - [x] Timer
+  - [x] Summary
+  - [x] Long Task Timer
+- [x] Impl ThreadPool monitoring
